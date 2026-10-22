@@ -5,23 +5,25 @@ const navItems = ['About', 'Experience', 'Projects', 'Skills', 'Contact']
 
 export default function Hero() {
   return (
-    <section className="h-screen p-4 md:p-6 relative">
-      <div className="relative h-full w-full rounded-2xl md:rounded-[2rem] overflow-hidden">
-        {/* Background video */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover object-[64%_center]"
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
+    <section className="relative p-4 md:h-screen md:p-6">
+      <div className="relative flex w-full flex-col overflow-hidden rounded-2xl md:block md:h-full md:rounded-[2rem]">
+        <div className="relative w-full pt-11 md:absolute md:inset-0 md:pt-0">
+          {/* Background video: full frame on phones, cinematic crop on desktop */}
+          <video
+            className="aspect-video w-full bg-black object-contain object-center md:absolute md:inset-0 md:aspect-auto md:h-full md:object-cover md:object-[64%_center]"
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
 
-        {/* Noise overlay */}
-        <div className="noise-overlay absolute inset-0 opacity-[0.7] mix-blend-overlay pointer-events-none" />
+          {/* Noise overlay */}
+          <div className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.7] mix-blend-overlay" />
 
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+          {/* Gradient overlay */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+        </div>
 
         {/* Navbar */}
         <nav className="absolute top-0 left-1/2 -translate-x-1/2 z-20">
@@ -45,16 +47,16 @@ export default function Hero() {
         </nav>
 
         {/* Hero Content */}
-        <div className="absolute left-0 right-0 bottom-[12vh] md:bottom-[16vh] p-6 md:p-10 lg:p-14 z-10">
+        <div className="relative z-10 px-5 pb-8 pt-5 md:absolute md:bottom-[16vh] md:left-0 md:right-0 md:p-10 md:px-10 lg:p-14">
           <div className="max-w-2xl">
             <h1
               className="font-medium leading-[0.85] tracking-[-0.07em] relative"
               style={{ color: '#E1E0CC' }}
             >
-              <span className="block text-[15vw] sm:text-[14vw] md:text-[12.5vw] lg:text-[11vw] xl:text-[10.5vw]">
+              <span className="block text-[14vw] sm:text-[12vw] md:text-[12.5vw] lg:text-[11vw] xl:text-[10.5vw]">
                 <WordsPullUp text="ISHA" />
               </span>
-              <span className="block text-[15vw] sm:text-[14vw] md:text-[12.5vw] lg:text-[11vw] xl:text-[10.5vw] -mt-1 sm:-mt-2">
+              <span className="block text-[14vw] sm:text-[12vw] md:text-[12.5vw] lg:text-[11vw] xl:text-[10.5vw] -mt-1 sm:-mt-2">
                 <WordsPullUp text="HINSU" delay={0.16} />
               </span>
             </h1>
